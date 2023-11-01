@@ -1,0 +1,27 @@
+Ryan Hirscher
+Dr. Oudshoorn CSC4510 Programming Language Design
+9/17/2023
+Assignment 2 Parameter Passing Mechanisms Java VS C++ (individual no partner)
+README
+
+The suite of programs were written by me. They were designed to test individual features in both C++ and Java as defined below:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Call by value: An in-mode mechanism. The formal parameter cannot hagve an effect on the actual parameter unless the value passed is a pointer or a reference. The formal parameter is just like a local variable in the procedure and it has its own storage in the activation record of the called procedure. The caller evaluates the actual parameters and copies their value into the storage location for the formal parameters.
+
+Call by Reference: An in-out mode mechanism. The general principle is that you copy the address of the actual parameter into the formal parameter at the time of the call.
+
+Call by Value-Result: An in-out mode mechanism. The general principle is that you copy the value of the actual parameter into the formal parameter at the time of the call, and then back to the actual parameter at the time of return from the procedure. An example is var parameters in Pascal, or & parameters in C++.
+
+Call by Name: The formal parameter names act as aliases for the corresponding actual parameters.
+
+Call by Result: An out-mode mechanism. The formal parameter value is copied to the actual parameter at the time of procedure return.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The results from these experiments will become the foundation of a paper (500-100 words) that is in this tar ball with the README. This paper will talk about the results with supporting details from the programs. The programs are also in the tar ball.
+
+Credits and References
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+https://www.scientecheasy.com/2020/06/java-call-by-value-and-call-by-reference.html/
+https://www.diva-portal.org/smash/get/diva2:1464693/FULLTEXT01.pdf
+https://www.geeksforgeeks.org/g-fact-31-java-is-strictly-pass-by-value/
+https://www.geeksforgeeks.org/parameter-passing-techniques-in-c-cpp/
