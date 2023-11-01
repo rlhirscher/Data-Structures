@@ -1,0 +1,250 @@
+Ryan Hirscher
+CSC4510 Dr. Oudshoorn
+Assignment 1 README
+
+=======================================
+Scripts:
+Compile.sh
+Test.sh
+Compare.sh
+Sum.sh
+
+=======================================
+Assumptions:
+The user should be within the Script directory to execute one of the Scripts. When executing the Scripts, please see the 'HOW TO usage' statement of a Script by executing it with no arguments.
+DO NOT provide any paths or relative paths when passing arguments, simply use the exact name of the file, directory, or executable exclusively.
+There are adjacent directories that contain built-in programs to correctly and incorrectly add numbers from other adjacent directories that contain input data and output data.
+User output and misuse is readable from standard out.
+
+=======================================
+Directories and Files:
+The Source directory is found adjacent to the Script directory. It contains ada and c++ programs and executables for their respective programs.
+
+The TestFiles directory is found adjacent to the Script directory. It contains test input for the programs labeled as test0-test6.
+
+The Correct directory is found adjacent to the Script directory. It contains the expected output for the programs labeled as test0Out-test6Out.
+
+The Script directory is where the user should be to run the scripts. It contains the Sum.sh script which calls the other 3 to Compile, Run, and Compare in order.
+
+The tmp directory is found within the Script directory. It is cleaned and wiped upon execution with 'rm rf' so do not put anything in that directory that you do not want to be removed. The directory is recreated and repopulated during runtime with temporary error files and output files specific to that runtime. The error files are labeled as err0.out-err6.out and the temporary output of the runtime is labeled as test0.out-test6.out.
+
+=======================================
+Compile.sh Usage and Actions:
+./Compile.sh [language] [sourcefile] [executable]
+[language] options: cpp and ada
+[sourcefile] options: correctAdd.cpp, correctadd.adb, incorrectAdd.cpp, incorrectadd.adb
+[executable] suggested options: correctAdd (c++), correctadd (ada), incorrectAdd (c++), incorrectadd (ada)
+
+Language Supported Options [language]:
+cpp
+ada
+
+Sourcefile Supported Options [sourcefile]:
+correctAdd.cpp
+incorrectAdd.cpp
+correctadd.adb
+incorrectadd.adb
+
+Known Executable Options and Not Limited to [executable]:
+C++: correctAdd
+C++: incorrectAdd
+ADA: correctadd
+ADA: incorrectadd
+
+This script passes 3 arguments: language, sourcefile, and executable. The language specifies the compiler, the sourcefile is verified in the Source directory, and the executable has no limitations. The program is then compiled and ada excess files are placed in the current directory which is the Script directory if applicable.
+
+EXAMPLE:
+./Compile.sh cpp correctAdd.cpp correctAdd
+OUTPUT:
+Compile.sh information:
++ + + + + + + + + + + + +
+Passed Compile input checks.
+Language: cpp
+Source file: ../Source/correctAdd.cpp
+Executable name: ../Source/correctAdd
++ + + + + + + + + + + + +
+
+=======================================
+Test.sh Usage and Actions:
+./Test.sh [input directory] [executable]
+[input directory] options: TestFiles"
+[executable] suggested options: correctAdd (c++), correctadd (ada), incorrectAdd (c++), incorrectadd (ada)
+
+Input Directory Options [input directory]:
+TestFiles
+
+Known Executable Options and Not Limited to [executable]:
+C++: correctAdd
+C++: incorrectAdd
+ADA: correctadd
+ADA: incorrectadd
+
+The Test.sh script takes 2 arguments: input directory and executable. The input directory specifies where the input for the programs is coming from. The executable gets verified and executed. The output is then sent to the newly cleaned tmp directory into output files.
+
+EXAMPLE:
+./Test.sh TestFiles correctAdd
+OUTPUT:
+Test.sh information:
++ + + + + + + + + + + + +
+Passed runtime input checks.
+Input directory: ../TestFiles
+Executable name: ../Source/correctAdd
+Program output: ./tmp
++ + + + + + + + + + + + +
+
+=======================================
+Compare.sh Usage and Actions
+./Compare.sh [input directory] [executable] [test directory]
+[input directory] options: TestFiles
+[executable] suggested options: correctAdd (c++), correctadd (ada), incorrectAdd (c++), incorrectadd (ada)
+[test directory] options: Correct
+
+Input Directory Options [input directory]:
+TestFiles
+
+Known Executable Options and Not Limited to [executable]:
+C++: correctAdd
+C++: incorrectAdd
+ADA: correctadd
+ADA: incorrectadd
+
+Expected Test Results Directory [test directory]:
+Correct
+
+The Compare.sh script takes 3 arguments: input directory, executable, and test directory. These arguments are verfieid, then Test.sh is called passing along the arguments to create a new execution with a new tmp directory and new outputs. Then these results are compared against the Expected Test Results Directory given the same number of test cases. The failed and passed test cases are reported to standard out at the time of checking. After the checks, total differences between the test cases are sent to standard out following the individual checks.
+
+EXAMPLE:
+./Compare.sh TestFiles incorrectAdd Correct
+OUTPUT:
+Compare.sh information:
++ + + + + + + + + + + + +
+Passed comparison input checks.
+Input directory: ../TestFiles
+Executable name: ../Source/incorrectAdd
++ + + + + + + + + + + + +
+
+Test.sh information:
++ + + + + + + + + + + + +
+Passed runtime input checks.
+Input directory: ../TestFiles
+Executable name: ../Source/incorrectAdd
+Program output: ./tmp
++ + + + + + + + + + + + +
+
+Testing...
+Passed ../Correct/test0Out
+Passed ../Correct/test1Out
+Passed ../Correct/test2Out
+Passed ../Correct/test3Out
+TEST FAILED AT ../Correct/test4Out
+TEST FAILED AT ../Correct/test5Out
+TEST FAILED AT ../Correct/test6Out
+2c2
+< 100 + 50 = 150
+---
+> 100 + -50 = 50
+--END TEST 4--
+
+2c2
+< 50 + 50 = 100
+---
+> -50 + -50 = -100
+--END TEST 5--
+
+2c2
+< 6 + 5 = 11
+---
+> 6 + -5 = 1
+--END TEST 6--
+=======================================
+Sum.sh Usage and Actions
+./Sum.sh [language] [sourcefile] [input directory] [executable] [test directory]
+[language] options: cpp and ada
+[sourcefile] options: correctAdd.cpp, correctadd.adb, incorrectAdd.cpp, incorrectadd.adb
+[input directory] options: TestFiles
+[executable] suggested options: correctAdd (c++), correctadd (ada), incorrectAdd (c++), incorrectadd (ada)
+[test directory] options: Correct
+
+Language Supported Options [language]:
+cpp
+ada
+
+Sourcefile Supported Options [sourcefile]:
+correctAdd.cpp
+incorrectAdd.cpp
+correctadd.adb
+incorrectadd.adb
+
+Input Directory Options [input directory]:
+TestFiles
+
+Known Executable Options and Not Limited to [executable]:
+C++: correctAdd
+C++: incorrectAdd
+ADA: correctadd
+ADA: incorrectadd
+
+Expected Test Results Directory [test directory]:
+Correct
+
+The Sum.sh script takes 5 arguments: language, sourcefile, input directory, executable, and test directory. The script calls Compile.sh and passes along the arguments which are verified there and the action of Compile.sh takes place. If an exit error occurs other than the successful exit, then a compilation error is sent to standard out. Then Compare.sh is called and passes along the arguments which then calls Test.sh for a new runtime. Each argument is verified and used. If an error occurs in Test.sh or something happens with the tmp directory then exit code 3 is returned and a runtime error is sent to standard out. If an error occurs during the comparison, a comparison error is sent to standard out.
+
+EXAMPLE:
+./Sum.sh ada incorrectadd.adb TestFiles incorrectadd Correct
+OUTPUT:
+Compile.sh information:
++ + + + + + + + + + + + +
+Passed Compile input checks.
+Language: ada
+Source file: ../Source/incorrectadd.adb
+Executable name: ../Source/incorrectadd
++ + + + + + + + + + + + +
+
+x86_64-linux-gnu-gnatbind-10 -x incorrectadd.ali
+x86_64-linux-gnu-gnatlink-10 incorrectadd.ali -o ../Source/incorrectadd
+Compare.sh information:
++ + + + + + + + + + + + +
+Passed comparison input checks.
+Input directory: ../TestFiles
+Executable name: ../Source/incorrectadd
++ + + + + + + + + + + + +
+
+Test.sh information:
++ + + + + + + + + + + + +
+Passed runtime input checks.
+Input directory: ../TestFiles
+Executable name: ../Source/incorrectadd
+Program output: ./tmp
++ + + + + + + + + + + + +
+
+Testing...
+Passed ../Correct/test0Out
+Passed ../Correct/test1Out
+Passed ../Correct/test2Out
+Passed ../Correct/test3Out
+TEST FAILED AT ../Correct/test4Out
+TEST FAILED AT ../Correct/test5Out
+TEST FAILED AT ../Correct/test6Out
+2c2
+< 100 + 50 = 150
+---
+> 100 + -50 = 50
+--END TEST 4--
+
+2c2
+< 50 + 50 = 100
+---
+> -50 + -50 = -100
+--END TEST 5--
+
+2c2
+< 6 + 5 = 11
+---
+> 6 + -5 = 1
+--END TEST 6--
+
+=======================================
+Credits:
+Bash Syntax website - https://devhints.io/bash
+Wildcard - https://superuser.com/questions/1056183/using-a-wildcard-in-a-condition-to-match-the-beginning-of-a-string
+=======================================
