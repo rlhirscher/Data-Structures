@@ -1,0 +1,60 @@
+Ryan Hirscher
+CSC4510 Programming Language Design
+Assignment 5 - Logic programming
+10/15/2023
+
+This README explains how to compile and run the code in this directory with a short explaination.
+
+The Prolog code in this directory creates a knowledge base to map out a family tree that would be able to identify relationships through queries. There are rules for spouse, mother, father, brother, sister, son, daughter, grandfather, grandmother, aunt, uncle, and cousin. Examples of usage are provided below, counterparts act the same. Meaning grandmother will return the female grandparent and grandfather will return the male grandparent.
+
+To Compile the source Code:
+gplc family.pl
+
+To execute which opens a prompt:
+./family
+
+To exit the prompt:
+halt.
+
+Example queries:
+===========================
+?- setof(X,male(X),List).
+
+List = [allen,arthur,brian,david,frank,harold,jason,jeremy,leonard,michael,oliver,peter,steve,tom,zach]
+
+===========================
+?- setof(X,cousin(X,frank),List).
+
+List = [jane,nancy,rachel,steve]
+
+===========================
+?- father(X,frank).
+
+X = leonard ?
+
+===========================
+?- setof(X,grandmother(X,michael),List).
+
+List = [naomi,tracey]
+
+===========================
+?- spouse(leonard,X).
+
+X = grace ?
+
+===========================
+?- setof(X,son(X,nancy),List).
+
+List = [jason,tom]
+
+===========================
+?- setof(X,sister(X,zach),List).
+
+List = [jennifer,shannon]
+
+===========================
+?- setof(X,aunt(X,irene),List).
+
+List = [kate,naomi]
+
+===========================

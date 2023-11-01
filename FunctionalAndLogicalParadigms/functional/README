@@ -1,0 +1,24 @@
+Ryan Hirscher
+CSC4510 Programming Language Design
+Assignment 5 - Functional programming
+10/15/2023
+
+This README explains how to compile and run the code in this directory with a short explaination.
+
+The chosen language to demonstrate the functional paradigm is Haskell. I created 2 programs, Functions.hs and Tasks.hs. Functions, the first program, was designed to explore the syntax and surface-level semantics which mainly focused on IO, lists, and functions. It consists of four functions to calculate the sum of integers in a for loop and integers from the command line. It also calculates the factorial of an input number. Lastly it determines if a number is odd or even.
+
+The Second program, Tasks.hs, is a command line task manager. You may enter a number 1-4 to add a task/description, remove a task by ID, display tasks, or quit. This program demonstrates several merits of the language. Immutable data means that functions will return new instances instead of modifying existing data. Pure functions don't have any side effects and return solely based on input. It supports the use of algebraic types which is a sort of composit type formed by combining other types.
+
+Compile:
+ghc <filename>
+
+Execute:
+./<executable>
+
+Example Compiles:
+ghc Tasks.hs
+ghc Functions.hs
+
+Example Executes:
+./Tasks
+./Functions
