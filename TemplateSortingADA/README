@@ -1,0 +1,151 @@
+Ryan Hirscher
+CSC4510
+Dr. Oudshoorn
+9/24/2023
+Program Language Design Translation
+C++ VS Ada Generics
+
+The goal of this assignment was to explore the strengths and weaknesses of Ada generics and C++ templates. I examine the capabilities of each through a generic sorting routine passing different data types to them. Additionally, I research documentation and whitepapers regarding Ada generics and how to perform them legally. Below is the list of resources that aided my research and personal experiments.
+
+Credits:
+https://learn.adacore.com/courses/intro-to-ada/chapters/generics.html
+https://www.adaic.org/resources/add_content/standards/05rm/html/RM-12-3.html
+https://stackoverflow.com/questions/26082055/ada-generic-package-usage-and-compliation-error-non-visible-declaration
+https://stackoverflow.com/questions/9856365/ada-compilation-does-not-contain-expected-unit
+https://groups.google.com/g/comp.lang.ada/c/1gnTw4BjAec?pli=1
+https://www.adaic.org/resources/add_content/docs/craft/html/ch12.htm
+https://en.wikibooks.org/wiki/Ada_Programming/All_Chapters#Generics
+
+
+Things to know:
+There are 2 directories: Source and TestFiles.
+Source contains the Ada programs and C++ program:
+(sort object files)
+sort_package.adb
+sort_package.ads
+test_sort
+test_sort.adb
+sort.cpp
+sort
+
+Run Ada program: ./test_sort
+Run C++ program: ./sort ../TestFiles/test0
+C++ can run 7 different test cases test0-test6. Run them accordingly.
+See output below.
+===================================================
+ADA output:
+===================================================
+The first unsorted array is ...
+RED
+GREEN
+INDIGO
+RED
+YELLOW
+RED
+ORANGE
+BLUE
+YELLOW
+GREEN
+
+
+The first sorted array is ...
+RED
+RED
+RED
+ORANGE
+YELLOW
+YELLOW
+GREEN
+GREEN
+BLUE
+INDIGO
+
+
+
+The second unsorted array is ...
+12.000
+-9.400
+26.020
+-18.630
+0.000
+123.456
+26.200
+
+
+The second sorted array is (decending)...
+123.456
+26.200
+26.020
+12.000
+0.000
+-9.400
+-18.630
+
+===================================================
+C++ Output: test0
+===================================================
+Unsorted array:
+1 2 3 6 3 2 10 9 33 5 3
+
+Sorted:
+1 2 2 3 3 3 5 6 9 10 33
+
+===================================================
+C++ Output: test1
+===================================================
+Unsorted array:
+
+
+Sorted:
+
+
+===================================================
+C++ Output: test2
+===================================================
+Unsorted array:
+0
+
+Sorted:
+0
+
+===================================================
+C++ Output: test3
+===================================================
+Unsorted array:
+99 8 2 3 2 88 3
+
+Sorted:
+2 2 3 3 8 88 99
+
+===================================================
+C++ Output: test4
+===================================================
+Unsorted array:
+8.21 7.98 3.2 7.22 7.99 0
+
+Sorted:
+0 3.2 7.22 7.98 7.99 8.21
+
+===================================================
+C++ Output: test5
+===================================================
+Unsorted array:
+b A a c D f e d c b
+
+Sorted:
+A D a b b c c d e f
+
+===================================================
+C++ Output: test6
+===================================================
+Unsorted array:
+hello yes hello red blue red hi apple
+
+Sorted:
+apple blue hello hello hi red red yes
+
+
+
+
+
+
